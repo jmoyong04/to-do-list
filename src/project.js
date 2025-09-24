@@ -1,3 +1,5 @@
+import { Task } from "./task";
+
 class Project{
     #id = crypto.randomUUID();
     #tasks = []
@@ -16,11 +18,19 @@ class Project{
     get id(){
         return this.#id
     }
-    findTask(id){
-        return this.#tasks.find(task => task.id === id ?? null);
+    toJSON(){
+        return {"name": this._name, "tasks" :this.#tasks.map(t=>t.toJSON()),
+            "id" : this.id
+        }
+    }
+    static fromJSON(proj){
+        const newProj = new Project (proj.name);
+        newProj.#tasks = (proj.tasks ?? []).map(t => Task.fromJSON(t))
+        newProj.#id = proj.id
+        return newProj
     }
     removeTask(id){
-        const i = this.#tasks.findIndex(t => t.id === taskId);
+        const i = this.#tasks.findIndex(t => t.id === id);
         if (i === -1) return false;
         this.#tasks.splice(i, 1);
         return true;
@@ -32,5 +42,4 @@ class Project{
         return true;
     }
 }
-
 export {Project}

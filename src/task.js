@@ -5,8 +5,10 @@ class Task{
         this._description = description;
         this._dueDate = dueDate;
         this._priority = priority;
-        this._notes = notes;
+        this._notes = notes
+        this._completed = false;
     }
+    toggleComplete() { this.completed = !this.completed; }
     get id(){
         return this.#id
     }
@@ -37,12 +39,17 @@ class Task{
     set priority(newPriority) {
         this._priority = newPriority;
     }
-    
-    get notes() {
-        return this._notes;
+
+    ToJSON(){
+        return {"title" : this._title, "description": this._description, 
+            "dueDate" : this._dueDate, "priority" : this._priority, "notes" : this._notes, "id" : this.#id}
     }
-    set notes(newNotes) {
-        this._notes = newNotes;
+    static fromJSON(task){
+        const newTask = new Task(task.title, task.description, task.dueDate, task.priority, task.notes);
+        newTask.#id = task.id;
+        newTask.completed = !!task.completed;
+        return newTask;
     }
+
 }
 export {Task}
