@@ -1,5 +1,6 @@
 import { Task } from "./task";
-
+import { compareAsc, format } from "date-fns";
+format(new Date(2014, 1, 11), "yyyy-MM-dd");
 class Project{
     #id = crypto.randomUUID();
     #tasks = []
@@ -26,8 +27,11 @@ class Project{
     static fromJSON(proj){
         const newProj = new Project (proj.name);
         newProj.#tasks = (proj.tasks ?? []).map(t => Task.fromJSON(t))
-        newProj.#id = proj.id
+        newProj.#id = proj.id;
         return newProj
+    }
+    findTask(id){
+        return this.#tasks.find(task => task.id === id) || null;
     }
     removeTask(id){
         const i = this.#tasks.findIndex(t => t.id === id);

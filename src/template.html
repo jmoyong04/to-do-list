@@ -9,13 +9,67 @@
 </head>
 <body>
     <div class="info">
+        <div class="note"></div>
         <h1>TODOLIST</h1>
-        <h2>Add Project</h2>
-        <p>Hello</p>
-        <button>button</button>
-    
+        <h3><img src="checkbox-marked-circle-plus-outline.svg" alt="add a new task" class="add-task-button">Add task</h3>
+        <div>
+            <h3><img src="hammer-screwdriver.svg" alt="projects icon" class="projects-icon">Projects:</h3>
+            <ul class="project-list">
+            </ul>
+        </div>
+        <h3><img src="plus.svg" alt="add new project" class="add-project-button">New Project</h3>
+        <div class="new-project">
+            <p>Project Name: <input type="text" id="new-project-name">
+            <button class="confirm-project">Confirm</button>
+            <button class="cancel-project">Cancel</button>
+        </p>
+        </div>
+        <div>
+            <p>High Priority <span class="priority-high"></span></p>
+            <p>Medium Priority <span class="priority-medium"></span>
+            <p>Low Priority <span class="priority-low"></span>
+        </div>
+        
     </div>
-    <div class="Project"></div>
+    <div class="project-section">
+        <h2 class="project-title"></h2>
+        <div class="project-body">
+        </div>
+    </div>
+    <div class="new-task">
+        <div class="new-options">
+            <p>Title: <input type="text" id="title"></p>
+            <p>Description: <textarea name="description" id="description" rows="8"></textarea></p>
+            <p>Due Date: <input type="date" id="due-date"></p>
+            <p>Priority: <select name="priority" id="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+                </select>
+            </p>
+            <div class="save-or-cancel">
+                <button class="save-task">Save Changes</button>
+                <button class="cancel-task">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div class="edit">
+        <div class="edit-data">
+            <p>Title: <input type="text" id = "edit-title"></p>
+            <p>Description: <textarea name="description" id="edit-description" rows="8"></textarea></p>
+            <p>Due Date: <input type="date" id="edit-due-date"></p>
+            <p>Priority: <select name="priority" id="edit-priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+                </select>
+            </p>
+            <div class="save-or-cancel">
+                <button id = "save-edit">Save Changes</button>
+                <button id = "cancel-edit">Cancel</button>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>

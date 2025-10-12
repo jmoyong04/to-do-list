@@ -1,12 +1,16 @@
 :root{
-    --background-color: #D8E1E9;
-    --primary-color: #7392B7;
-    --secondary-color: #759EB8;
-    --border-color: #C5D5EA;
+    --background-color: #F4F3EE;
+    --primary-color: #463F3A;
+    --secondary-color: #8A817C;
+    --border-color: #BCB8B1;
     
 }
 *{
     box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    margin: 0;
 }
 html{
     font-size: 16px;
@@ -16,23 +20,157 @@ html{
 body{
     background-color:  var(--background-color);
     display: flex;
-    margin: 0;
+    height: 100vh;
 }
-h1,h2{
+h1,h2,h3{
     color: var(--primary-color);
 }
-p{
+p, select{
     color: var(--secondary-color);
+    font-size: 0.8rem;
 }
 button{
     color: var(--background-color);
     background-color: var(--primary-color);
+    border: none;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+
 }
 .info{
+    flex: 1;
     padding: 1rem;
-    height: 100vh;
     border-right: solid var(--border-color) 1px;
+    display: flex;
+    flex-direction: column;
+
 }
-.project{
-    color: var(--primary-color)
+.project-section{
+    flex: 5;
+    padding: 1rem;
+    overflow: auto;
 }
+.project-body{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+.task{
+    padding: 0.5rem;
+    background-color: var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    border-top: solid 8px;
+    border-color: red;
+}
+
+.description{
+    background-color: white;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    padding: 0.5em;
+}
+.priority-high, .priority-medium, .priority-low{
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+}
+.priority-high{
+    background-color: red;
+}
+.priority-medium{
+    background-color: yellow;
+}
+.priority-low{
+    background-color: green;
+}
+.icons{
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5em;
+}
+.notes-button, .remove-button, .add-task-button
+,.projects-icon, .add-project-button, .remove-project-button{
+    height: 1em;
+    width: 1em;
+}
+.notes-button:hover,
+.remove-button:hover,
+.add-task-button:hover,
+.add-project-button:hover,
+button:hover,li:hover, .remove-project-button:hover{
+    cursor: pointer;
+}
+ul{
+    color: var(--secondary-color);
+    list-style: none;
+}
+.edit{
+    display: none;
+    position: fixed;
+    background-color: var(--border-color);
+    height: 50vh;
+    width: 50vw;
+    top: 5%;
+    left: 25%;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+.edit-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    width: 90%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1em;
+}
+.new-task{
+    display: none;
+    position: fixed;
+    background-color: var(--border-color);
+    height: 60vh;
+    width: 50vw;
+    top: 5%;
+    left: 25%;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: center;
+}
+.new-options{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+    width: 90%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1em;
+}
+input[type="text"]{
+    border: solid var(--border-color) 1px;
+    border-radius: 2px;
+}
+.save-or-cancel{
+    display: flex;
+    justify-content: space-between;
+}
+.new-project{
+    display: none;
+}
+.confirm-project{
+    margin: 0.5em;
+}
+textarea{
+    border: solid var(--border-color) 1px;
+}
+p textarea {
+    vertical-align: top;
+  }

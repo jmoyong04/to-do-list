@@ -1,11 +1,10 @@
 class Task{
     #id = crypto.randomUUID();
-    constructor(title, description, dueDate, priority, notes){
+    constructor(title, description, dueDate, priority){
         this._title = title;
         this._description = description;
         this._dueDate = dueDate;
         this._priority = priority;
-        this._notes = notes
         this._completed = false;
     }
     toggleComplete() { this.completed = !this.completed; }
@@ -40,12 +39,12 @@ class Task{
         this._priority = newPriority;
     }
 
-    ToJSON(){
+    toJSON(){
         return {"title" : this._title, "description": this._description, 
-            "dueDate" : this._dueDate, "priority" : this._priority, "notes" : this._notes, "id" : this.#id}
+            "dueDate" : this._dueDate, "priority" : this._priority, "id" : this.#id}
     }
     static fromJSON(task){
-        const newTask = new Task(task.title, task.description, task.dueDate, task.priority, task.notes);
+        const newTask = new Task(task.title, task.description, task.dueDate, task.priority,);
         newTask.#id = task.id;
         newTask.completed = !!task.completed;
         return newTask;
