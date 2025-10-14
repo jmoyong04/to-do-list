@@ -1,6 +1,4 @@
 import { Task } from "./task";
-import { compareAsc, format } from "date-fns";
-format(new Date(2014, 1, 11), "yyyy-MM-dd");
 class Project {
   #id = crypto.randomUUID();
   #tasks = [];

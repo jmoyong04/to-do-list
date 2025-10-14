@@ -29,7 +29,7 @@ if (allProjects.length === 0) {
   setCurrentProject(allProjects[0]);
   displayProject(currentProject);
 }
-function persist() {
+export function persist() {
   saveProjects(allProjects);
 }
 

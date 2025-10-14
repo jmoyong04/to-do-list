@@ -1,8 +1,6 @@
-import { Project } from "./project";
-import { Task } from "./task";
 import infoButton from "./text.svg";
 import remove from "./close-thick.svg";
-import { goHome } from ".";
+import { goHome, persist } from ".";
 export let currentProject = null;
 
 export function setCurrentProject(proj) {
@@ -53,6 +51,7 @@ export function addTaskToDom(task) {
   removeButton.value = task.id;
   removeButton.addEventListener("click", (e) => {
     currentProject.removeTask(e.target.value);
+    persist();
     displayProject(currentProject);
   });
   header.textContent = task.title;
